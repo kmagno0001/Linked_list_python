@@ -44,4 +44,22 @@ class Linked_list:
             tmp += f"{iterator_node.get_value()} "
 
         return tmp
+    
+    def get_nth_last_node(self, nth: int) -> int :
+        last: Node = None
+        iter_node: Node = self.head_node
+        count: int = 1
+        while iter_node != None:
+            iter_node = iter_node.get_next_node()
+            count += 1
+
+            if count >= nth + 1 :
+                if last is None:
+                    last = self.head_node
+                else:
+                    last = last.get_next_node()
+        return last.get_value()                
+
+
+
 
