@@ -8,6 +8,7 @@ lst.append(5)
 lst.append(9, 2)
 lst.append(8, 3)
 lst.append(7)
+lst.append(17)
 
 print(lst)
 
@@ -15,3 +16,4 @@ print(lst)
 
 lst.swaping_two_elements(9, 8)
 print(lst)
+print(lst.middle_node())

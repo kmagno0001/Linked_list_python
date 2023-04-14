@@ -97,6 +97,16 @@ class Linked_list:
         node_elemA.set_next_node(node_elemB.get_next_node())
         node_elemB.set_next_node(next_elemA)
 
+    def middle_node(self) -> int:
+        fast: Node = self.head_node
+        slow: Node = self.head_node
+
+        while fast is not None:
+            fast = fast.get_next_node()
+            if fast is not None:
+                fast = fast.get_next_node()
+                slow = slow.get_next_node()
+        return slow.get_value()
 
 
 
