@@ -107,6 +107,21 @@ class Linked_list:
                 fast = fast.get_next_node()
                 slow = slow.get_next_node()
         return slow.get_value()
+    
+    def remove_node(self, value: int) -> None:
+        if self.head_node.get_value() == value:
+            self.head_node = self.head_node.get_next_node()
+            return
 
+        iter_node: Node = self.head_node
+        next_node: Node = None
+        while iter_node is not None:
+            next_node = iter_node.get_next_node()
+            if next_node.get_value() == value:
+                iter_node.set_next_node(next_node.get_next_node())
+                iter_node = None
+            else:
+                iter_node = next_node    
 
+        return
 
