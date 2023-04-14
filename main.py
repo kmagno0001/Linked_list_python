@@ -9,8 +9,9 @@ lst.append(9, 2)
 lst.append(8, 3)
 lst.append(7)
 
-
-
 print(lst)
 
-print(lst.get_nth_last_node(3))
+#print(lst.get_nth_last_node(3))
+
+lst.swaping_two_elements(9, 8)
+print(lst)

@@ -6,7 +6,6 @@ class Linked_list:
         self.len = 1
 
     def append(self, new_value: int, index: int = None) -> None:
-         
         iterator_node = self.head_node
 
         if index == None:
@@ -29,8 +28,9 @@ class Linked_list:
                 self.head_node = Node(new_value, iterator_node)
             else:
                 prev_node.set_next_node(Node(new_value, iterator_node)) 
+
         else:
-            return    
+            return  
            
         self.len += 1  
 
@@ -58,7 +58,44 @@ class Linked_list:
                     last = self.head_node
                 else:
                     last = last.get_next_node()
+
         return last.get_value()                
+
+    def swaping_two_elements(self, elemA: int, elemB: int):
+        if elemA == elemB: return
+
+        prev_nodeA: Node = None
+        prev_nodeB: Node = None
+        
+        node_elemA: Node = self.head_node
+        node_elemB: Node = self.head_node
+
+        while node_elemA != None:
+            if node_elemA.get_value() == elemA:
+                break
+            prev_nodeA = node_elemA
+            node_elemA = node_elemA.get_next_node()
+
+        while node_elemB != None:
+            if node_elemB.get_value() == elemB:
+                break
+            prev_nodeB = node_elemB
+            node_elemB = node_elemB.get_next_node()    
+       
+        if prev_nodeA == None:
+            self.head_node = node_elemB
+        else:    
+            prev_nodeA.set_next_node(node_elemB)
+
+        if prev_nodeB == None:
+            self.head_node = node_elemA
+        else:        
+            prev_nodeB.set_next_node(node_elemA)
+
+        next_elemA = node_elemA.get_next_node()
+
+        node_elemA.set_next_node(node_elemB.get_next_node())
+        node_elemB.set_next_node(next_elemA)
 
 
 
